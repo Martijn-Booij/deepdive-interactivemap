@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS `boomgaarde`;
+
+CREATE DATABASE `boomgaarde`;
+
+USE `boomgaarde`;
+
+CREATE TABLE IF NOT EXISTS `boom` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`naam` varchar(200) NOT NULL,
+  `lat` DOUBLE DEFAULT 0,
+  `lng` DOUBLE DEFAULT 0,
+  `kilo_pj` text NOT NULL,
+	`date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
