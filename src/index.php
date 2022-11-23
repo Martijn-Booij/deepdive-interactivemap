@@ -1,25 +1,34 @@
 <?php
 include('db.php');
+session_start();
 $conn = pdo_connect_mysql();
 if(isset($_POST['insert'])){
-    $naam = $_POST['naam'];
-    $lat = $_POST['lat'];
-    $lng = $_POST['lng'];
-    $kilo_pj = $_POST['kilo_pj'];
+    $rasnaam = $_POST['rasnaam'];
+    $soort = $_POST['soort'];
+    $aantal = $_POST['aantal'];
+    $tijdvak = $_POST['tijdvak'];
+    $tijdcheck = $_POST['tijdcheck'];
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
 
-if($naam == null && $coords == null && $kilo_pj && null && $lat == null && $lng == null){
+    if (empty($rasnaam) || empty($soort) || empty($aantal) || empty($tijdvak) || empty($tijdcheck) || empty($latitude) || empty($longitude)) {
         echo 'U forgot to fill something in';
      } else{
-        $insert = $conn->prepare("INSERT INTO `boom` (`naam`, `lat`, `lng`,
-`kilo_pj`) VALUES (?, ?, ?, ?)"); $insert->execute([$naam, $lat, $lng,
-$kilo_pj]); echo 'Information inserted'; } } $prepare = $conn->prepare("SELECT *
-FROM boom ORDER BY id"); $prepare->execute([]); ?>
+        $insert = $conn->prepare("INSERT INTO `boom` (`rasnaam`, `soort`, `aantal`, `tijdvak`, `tijdcheck`, `latitude`, `longitude`) VALUES (?, ?, ?, ?, ?, ?, ?)"); 
+        $insert->execute([$rasnaam, $soort, $aantal, $tijdvak, $tijdcheck, $latitude, $longitude]); echo 'Information inserted'; 
+        header("Location: index.php"); } 
+    
+    }
+
+        $prepare = $conn->prepare("SELECT * FROM boom ORDER BY id");
+        $prepare->execute([]);
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Leaflet Quick Start Example</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.78.0/dist/L.Control.Locate.min.css"/>
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
@@ -43,43 +52,74 @@ FROM boom ORDER BY id"); $prepare->execute([]); ?>
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Voeg een boom toe</h3>
                 <form id="form" class="space-y-6" action="" method="POST">
                     <div class="inputBox">
-                    <label for="naam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Boomnaam:</label>
+                    <label for="rasnaam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">rasnaam:</label>
                         <input
                             type="text"
-                            name="naam"
-                            placeholder="Enter your boom naam"
+                            name="rasnaam"
+                            placeholder="Enter your rasnaam"
                             class="box"
                             required
                         />
                     </div>
-                        <label for="lat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">latitude:</label>
-                        <div class="inputBox">
-                        <input
-                            type="number"
-                            id="lat"
-                            name="lat"
-                            step="any"
-                            class="box"
-                            required
-                        />
-                        </div>
-                        <label for="lng" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">lng:</label>
-                        <div class="inputBox">
-                        <input
-                            type="number"
-                            id="lng"
-                            name="lng"
-                            step="any"
-                            class="box"
-                            required
-                        />
-                        </div>
-                        <label for="kilo_pj" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Klo per jaar:</label>
+                    <label for="soort" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soort:</label>
                         <div class="inputBox">
                         <input
                             type="text"
-                            name="kilo_pj"
-                            placeholder="enter your kilo per jaar"
+                            name="soort"
+                            placeholder="Enter your soort"
+                            class="box"
+                            required
+                        />
+                        </div>
+                        <label for="aantal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">aantal:</label>
+                        <div class="inputBox">
+                        <input
+                            type="number"
+                            name="aantal"
+                            placeholder="Enter your aantal"
+                            class="box"
+                            required
+                        />
+                        </div>
+
+                        <label for="tijdvak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">tijdvak:</label>
+                        <div class="inputBox">
+                        <input
+                            type="text"
+                            name="tijdvak"
+                            placeholder="Enter your tijdvak"
+                            class="box"
+                            required
+                        />
+                        </div>
+                        <label for="tijdcheck" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">tijdcheck:</label>
+                        <div class="inputBox">
+                        <input
+                            type="text"
+                            name="tijdcheck"
+                            placeholder="Enter your tijdcheck"
+                            class="box"
+                            required
+                        />
+                        </div>
+                        <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">latitude:</label>
+                        <div class="inputBox">
+                        <input
+                            type="number"
+                            id="latitude"
+                            name="latitude"
+                            step="any"
+                            class="box"
+                            required
+                        />
+                        </div>
+                        <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">longitude:</label>
+                        <div class="inputBox">
+                        <input
+                            type="number"
+                            id="longitude"
+                            name="longitude"
+                            step="any"
                             class="box"
                             required
                         />
@@ -116,25 +156,31 @@ FROM boom ORDER BY id"); $prepare->execute([]); ?>
        var database = <?php echo json_encode($prepare->fetchAll(PDO::FETCH_ASSOC)); ?>;
        for (var i = 0; i < database.length; i++) {
            var a = database[i];
-           var naam = a['naam'];
-           var date = a['date_added'];
-           var kilo = a['kilo_pj'];
-           var marker = L.marker([a['lat'], a['lng']], {icon: myIcon}).addTo(map);
+           let rasnaam = a.rasnaam;
+              let soort = a.soort;
+                let aantal = a.aantal;
+                let tijdvak = a.tijdvak;
+                let tijdcheck = a.tijdcheck;
+                let latitude = a.latitude;
+                let longitude = a.longitude;
+           var marker = L.marker([a['latitude'], a['longitude']], {icon: myIcon}).addTo(map);
            marker.bindPopup(
-               '<b>Boom naam:</b> ' +
-                   naam +
-                   '<br><b>Date added:</b> ' +
-                   date +
-                   '<br><b>Kilo per jaar:</b> ' +
-                   kilo
+               '<b>rasnaam:</b> ' + rasnaam + '<br>' + 
+                '<b>soort:</b> ' + soort + '<br>' +
+                '<b>aantal:</b> ' + aantal + '<br>' +
+                '<b>tijdvak:</b> ' + tijdvak + '<br>' +
+                '<b>tijdcheck:</b> ' + tijdcheck + '<br>' +
+                '<b>latitude:</b> ' + latitude + '<br>' +
+                '<b>longitude:</b> ' + longitude + '<br>'
+
            );
-       }
+        }
 
        map.addEventListener('click', function(e) {
         var lat = e.latlng.lat;
         var lng = e.latlng.lng;
-        document.getElementById('lat').value = lat;
-        document.getElementById('lng').value = lng;
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
         modal = document.getElementById('authentication-modal');
         modal.classList.add('active');
         modal.classList.remove('hidden');
@@ -149,5 +195,4 @@ if (document.getElementById('close')) {
     });
 }
        L.control.locate().addTo(map);
-       L.showPopup();
 </script>
