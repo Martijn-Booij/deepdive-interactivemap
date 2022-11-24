@@ -91,7 +91,7 @@ if (!isset($_SESSION['id'])) {
                         <span>2004</span>
                      </div>
 
-                     <div class="flex flex-col gap-5 xl:flex-row xl:justify-between">
+                     <div class="flex flex-col gap-5   xl:flex-row xl:justify-between">
                         <button class='border rounded-full border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 ease-out xl:w-auto xl:px-5 py-2 text-xl'>Edit</button>
                         <button class='border rounded-full border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 ease-out px-5 py-2 text-xl'>Add</button>
                      </div>

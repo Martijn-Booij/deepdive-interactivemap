@@ -59,12 +59,12 @@ if (isset($_POST["submit"])) {
         <form class="mt-6" action="#" method="POST">
           <div>
             <label class="block text-gray-700">Full Name</label>
-            <input type="text" name="vollenaam" id="" placeholder="Enter Youre full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+            <input type="text" name="vollenaam" id="" placeholder="Enter Full Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
           </div>
 
           <div class="mt-4">
             <label class="block text-gray-700">Email</label>
-            <input type="email" name="email" id="" placeholder="Enter Youre E-mail" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+            <input type="email" name="email" id="" placeholder="Enter Email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
           </div>
 
           <div class="mt-4">
