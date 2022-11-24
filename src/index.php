@@ -16,6 +16,8 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="../dist/leaflet.css">
 </head>
 <body style="background-color: whitesmoke;">
+<!-- 
+
     <nav id="header" class="w-full z-30 top-10 py-1 bg-white shadow-lg border-b">
         <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
            <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -28,40 +30,78 @@ if (!isset($_SESSION['id'])) {
 
            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
               <nav>
-
+                  test
               </nav>
            </div>
 
            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
               <div class="auth flex items-center w-full md:w-full">
-                 <!-- <button class="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Login</button> -->
+                 <button class="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Login</button>
 
                  <?php
-                     echo '<a href="./logout.php" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-8 border border-black rounded-full shadow mr-8">logout</a>';
+                     //echo '<a href="./logout.php" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-8 border border-black rounded-full shadow mr-8">logout</a>';
                    ?>
                  <a href="register.php" class="bg-black text-gray-200  p-2 py-2 px-5 rounded-full border border-black hover:bg-white hover:text-black ">Sign up</a>
               </div>
            </div>
         </div>
      </nav>
+     -->
 
-      <!-- <img src="map.png" style="border-width: 13px; width: 80%; height: auto;" class="rounded-xl h-full overflow-hidden border-8 m-44 border-black" alt=""> -->
+      <header>
+         <div class="w-full py-3 shadow-xl flex items-center justify-between px-10">
+            <div class="flex gap-1 items-center">
+               <img class='h-20 w-20' src="../dist/images/logo.png" alt="">
+            </div>
 
-      <main class='container mx-auto flex justify-between gap-10 mt-10'>
-         <div class='border border-black rounded-xl w-2/3'>
+            <div>
+               <a class='border border-red-500 text-red-500 rounded-full px-5 py-3 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in' href="./logout.php">Log out</a>
+            </div>
+         </div>
+      </header>
+
+      <main class='container mx-auto flex flex-col xl:flex-row justify-between gap-10 mt-10'>
+         <div class='border-8 border-black rounded-xl w-full xl:w-2/3'>
             <div class='map w-full h-[500px] rounded-xl' id='map'></div>
          </div>
-         <div class='w-[300px] h-[300px] bg-red-500'>
-            <span id='tree-title'></span>
+         
+         <div class='shadow-xl rounded-3xl w-fullxl:w-1/3 px-4 py-10'>
+            <div class="flex flex-col gap-10 h-full">
+               <h2 class='text-5xl font-sans text-center'>{Ras naam boom}</h2>
+
+               <div class="w-full flex flex-col justify-center items-center h-full">
+                  <div class='flex flex-col justify-between w-full max-w-sm'>
+                     <div class='info'>
+                        <span>Soort:</span>
+                        <span>Apple</span>
+                     </div>
+
+                     <div class='info'>
+                        <span>Tijdvak:</span>
+                        <span>1970 - 2022</span>
+                     </div>
+
+                     <div class='info'>
+                        <span>Aantal:</span>
+                        <span>2</span>
+                     </div>
+
+                     <div class='info'>
+                        <span>Jaarcheck:</span>
+                        <span>2004</span>
+                     </div>
+
+                     <div class="flex flex-col gap-5 xl:flex-row xl:justify-between">
+                        <button class='border rounded-full border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 ease-out xl:w-auto xl:px-5 py-2 text-xl'>Edit</button>
+                        <button class='border rounded-full border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 ease-out px-5 py-2 text-xl'>Add</button>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
          </div>
          
       </main>
-      <!-- flex space justify-between -->
-      <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900 absolute bottom-0 w-full">
-         <!-- div  -->
-         <!-- div -->
-
-      </footer>
 
       <script src="../dist/js/leaflet.js"></script>
       <script src='../dist/js/script.js'></script>

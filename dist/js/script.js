@@ -12,8 +12,12 @@ var geojsonFeature = [
     {
         "type": "Feature",
         "properties": {
-            "name": "Apple tree",
-            "popupContent": ''
+            "name": "Type boom: Appel",
+            "aanplant": 'Aanplant: 2019',
+            'onderhoud': 'Onderhoud: ',
+            'snoeiwerkzaamheden': 'Snoeiwerkzaamheden: ',
+            'oogst': 'Oogst: ',
+            'aantalkilos': 'Aantal kilo\'s: 50',
         },
         "geometry": {
             "type": "Point",
@@ -23,13 +27,16 @@ var geojsonFeature = [
     {
         "type": "Feature",
         "properties": {
-            "name": "Coors Field",
-            "amenity": "Baseball Stadium",
-            "popupContent": "This is where the Rockies play!"
+            "name": "Type boom: Appel",
+            "aanplant": 'Aanplant: 2019',
+            'onderhoud': 'Onderhoud: ',
+            'snoeiwerkzaamheden': 'Snoeiwerkzaamheden: ',
+            'oogst': 'Oogst: ',
+            'aantalkilos': 'Aantal kilo\'s: 50',
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [5.0416579, 52.2550063]
+            "coordinates": [5.0490578, 52.2550063]
         }
     }
 ];
@@ -46,6 +53,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 L.geoJSON(geojsonFeature, {
     pointToLayer: function(feature,latlng) {
-        return L.marker(latlng, {icon: treeIcon}).bindPopup(feature.properties.popupContent);
+        return L.marker(latlng, {icon: treeIcon}).bindPopup('<div><p>'+feature.properties.name+'</p><p>'+feature.properties.aanplant+'</p><p>'+feature.properties.onderhoud+'</p><p>'+feature.properties.snoeiwerkzaamheden+'</p><p>'+feature.properties.oogst+'</p><p>'+feature.properties.aantalkilos+'</p></div>');
     },
 }).addTo(map);
