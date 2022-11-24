@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
     $sqlResult = $conectie->query("SELECT * FROM gebruikers_accounts WHERE email = '$email2' AND password = '$password2'")->fetch();
     if ($sqlResult) {
         $_SESSION['id'] = $sqlResult['id'];
-        header("Location: landinpage.php "); //    <--- redirect naar front_page/index(.php)
+        header("Location: index.php "); //    <--- redirect naar front_page/index(.php)
     } else {
         $erorrMessage = "Email or password is incorrect";
         // echo "<h1 class='center'>wachtwoord/email is niet validate! </h1>";
@@ -49,7 +49,7 @@ if (isset($_POST["submit"])) {
       <img src="figma.jpg" alt="" class="w-full h-full object-cover">
     </div>
 
-    <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+    <div class="bg-white w-full md:mx-auto lg:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
           flex items-center justify-center">
 
       <div class="w-full h-100">
@@ -59,7 +59,7 @@ if (isset($_POST["submit"])) {
 
         <form class="mt-6" action="#" method="POST">
           <div>
-            <label class="block text-gray-700">Email Address</label>
+            <label class="block text-gray-700">Email address</label>
             <input type="email" name="email2" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
           </div>
 
@@ -78,8 +78,8 @@ if ($erorrMessage) {
             <a href="forget.php" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>
           </div> -->
 
-          <button type="submit" name="submit" class="w-full block bg-red-700 hover:bg-red-700 focus:bg-red-400 text-white font-semibold rounded-lg
-                px-4 py-3 mt-6">Login</button>
+          <button type="submit" name="submit" class="w-full block bg-red-700 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                px-4 py-3 mt-6 transition-all duration-300 ease-linear">Login</button>
         </form>
 
         <hr class="my-6 border-gray-300 w-full">
