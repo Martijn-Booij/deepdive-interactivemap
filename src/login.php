@@ -3,8 +3,8 @@
 session_start();
 // require_once "userController.php";
 $servername = "localhost";
-$username = "bit_academy";
-$password = "bit_academy";
+$username = "root";
+$password = "";
 try {
     $conectie = new PDO("mysql:host=$servername;dbname=vechtstreekfruit", $username, $password);
 
@@ -39,7 +39,8 @@ if (isset($_POST["submit"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log in </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css">
+  <link rel="stylesheet" href="../dist/output.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css"> -->
 </head>
 <body>
   <section class="flex flex-col md:flex-row h-screen items-center">

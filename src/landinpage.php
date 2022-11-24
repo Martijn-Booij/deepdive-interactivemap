@@ -11,7 +11,8 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vechtstreek Fruit</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css"> -->
+    <link rel="stylesheet" href="../dist/output.css">
 </head>
 <body style="background-color: whitesmoke;">
     <nav id="header" class="w-full z-30 top-10 py-1 bg-white shadow-lg border-b">
